@@ -11,6 +11,9 @@ export default function CreateTodo({ }) {
 
             <textarea />
             <input type="submit" value="Create" />
+
+            <div>Todo Item Submitted At: <b>{Date(Date.now()).toString()}</b></div>
+
         </form>
     )
 }
