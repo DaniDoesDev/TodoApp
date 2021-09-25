@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import MyName from "./MyName";
+import UserBar from "./user/UserBar";
+import CreateTodo from "./CreateTodo";
+import TodoList from "./TodoList";
 
 function App() {
+  const posts = [
+    {
+      title: "My Post",
+      content: "Some text",
+      author: "Danielle"
+    },
+    {
+      title: "My Post",
+      content: "Some text",
+      author: "Danielle"
+    },
+    {
+      title: "My Post",
+      content: "Some text",
+      author: "Danielle"
+    },
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserBar /> <br /><br /><hr /><br />
+      {/* <Post title="My Title" content="My first post." author="Danielle" /><br /><br /><hr /><br /> */}
+      <CreateTodo user="Danielle" />
+      <TodoList posts={posts} />
     </div>
-  );
+  )
 }
 
 export default App;
