@@ -1,13 +1,11 @@
 import React from 'react'
 
-export default function CreateTodo({ user }) {
+export default function CreateTodo({ }) {
     return (
         <form onSubmit={e => e.preventDefault()}>
 
-            <div>Author: <b>{user}</b></div>
-
             <div>
-                <label htmlFor="create-title">Title:</label>
+                <label htmlFor="create-title">Todo Item Title:</label>
                 <input type="text" name="create-title" id="create-title" />
             </div>
 

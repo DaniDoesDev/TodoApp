@@ -1,18 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 
-export default function Todo({ title, content, author}) {
+export default function Todo({ title, description, dateCreated}) {
     const [checked, setChecked] = useState(false);
-    const dateCreated = Date(Date.now()).toString();
 
     function handleChange(evt) {
         setChecked(!checked);
-        <div> Date completed: {Date(Date.now()).toString()} </div>
       }
 
     return (
         <div>
             <h3>{title}</h3>
-            <div>{content}</div>
+            <div>{description}</div>
             <div> Date created: {dateCreated} </div>
             <form> 
                 <label> Complete?
