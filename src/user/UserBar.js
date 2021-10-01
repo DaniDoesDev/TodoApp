@@ -16,18 +16,3 @@ export default function UserBar( {user, dispatchUser} ) {
         )
     }
 }
-
-
-// export default function UserBar( {user, dispatch} ) {
-
-//     if (user) {
-//         return <Logout user={user} dispatch={dispatch} />
-//     } else {
-//         return (
-//             <>
-//                 <Login dispatch={dispatch}/>
-//                 <Register setUser={dispatch} />
-//             </>
-//         )
-//     }
-// }

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
-export default function Todo({ title, description, dateCreated}) {
-    const [checked, setChecked] = useState(false);
+export default function Todo({ title, description, dateCreated, completed}) {
+     const [checked, setChecked] = useState(completed);
 
-    function handleChange(evt) {
-        setChecked(!checked);
+    function handleChange() {
+        completed = !completed;
       }
 
     return (
@@ -14,10 +14,10 @@ export default function Todo({ title, description, dateCreated}) {
             <div> Date created: {dateCreated} </div>
             <form> 
                 <label> Complete?
-                    <input type="checkbox" name="box-id" value="choice-id" defaultChecked={checked} onChange={handleChange} />
+                    <input type="checkbox" name="box-id" value={completed} onChange={handleChange} />
                 </label> 
             </form>
-            <div> {checked && <text> Date completed: {Date(Date.now()).toString()} </text> }</div>
+            <div> {completed && <text> Date completed: {Date(Date.now()).toString()} </text> }</div>
             <br />
         </div>
     )
