@@ -5,7 +5,7 @@ import React, { useState, useReducer } from 'react'
 
 function App() {
 
-  const [ user, setUser ] = useState('')
+  // const [ user, setUser ] = useState('')
   
 
 
@@ -29,27 +29,23 @@ function App() {
 
   const [ posts, setPosts ] = useState(initialPosts)
 
-  // function userReducer (state, action) {
-  //   switch (action.type) {
-  //       case 'LOGIN':
-  //       case 'REGISTER':
-  //           return action.username
-  //       case 'LOGOUT':
-  //           return ''
-  //       default:
-  //           throw new Error()
-  //   }
+  function userReducer (state, action) {
+    switch (action.type) {
+        case 'LOGIN':
+        case 'REGISTER':
+            return action.username
+        case 'LOGOUT':
+            return ''
+        default:
+            throw new Error()
+    }
+  }
 
-  //   const [ user, dispatchUser ] = useReducer(userReducer, '')
-  // }
-
-
-  
+  const [ user, dispatchUser ] = useReducer(userReducer, '')
 
   return (
     <div>
-      <UserBar user={user} setUser={setUser} /> 
-      {/* <UserBar user={user} setUser={dispatchUser} />  */}
+      <UserBar user={user} dispatchUser={dispatchUser} /> 
       <br /><br /><hr /><br />
       {user && <CreateTodo user={user} posts={posts} setPosts={setPosts} />}
       <TodoList posts={posts} />
