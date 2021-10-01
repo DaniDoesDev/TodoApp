@@ -1,9 +1,13 @@
 import UserBar from "./user/UserBar";
 import CreateTodo from "./CreateTodo";
 import TodoList from "./TodoList";
-import React, {useState} from 'react'
+import React, { useState, useReducer } from 'react'
 
 function App() {
+
+  const [ user, setUser ] = useState('')
+  
+
 
   const initialPosts = [
     {
@@ -25,11 +29,30 @@ function App() {
 
   const [ posts, setPosts ] = useState(initialPosts)
 
+  // function userReducer (state, action) {
+  //   switch (action.type) {
+  //       case 'LOGIN':
+  //       case 'REGISTER':
+  //           return action.username
+  //       case 'LOGOUT':
+  //           return ''
+  //       default:
+  //           throw new Error()
+  //   }
+
+  //   const [ user, dispatchUser ] = useReducer(userReducer, '')
+  // }
+
+
+  
+
   return (
     <div>
-      <UserBar /> <br /><br /><hr /><br />
-      <CreateTodo />
-      <TodoList posts={initialPosts} />
+      <UserBar user={user} setUser={setUser} /> 
+      {/* <UserBar user={user} setUser={dispatchUser} />  */}
+      <br /><br /><hr /><br />
+      {user && <CreateTodo user={user} posts={posts} setPosts={setPosts} />}
+      <TodoList posts={posts} />
     </div>
   )
 }
