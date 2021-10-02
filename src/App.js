@@ -1,7 +1,7 @@
 import UserBar from "./user/UserBar";
 import CreateTodo from "./CreateTodo";
 import TodoList from "./TodoList";
-import React, { useState, useReducer } from 'react'
+import React, { useReducer } from 'react'
 
 function App() {
 
@@ -26,51 +26,39 @@ function App() {
     },
   ]
 
-  function userReducer (state, action) {
+  function userReducer(state, action) {
     switch (action.type) {
-        case 'LOGIN':
-        case 'REGISTER':
-            return action.username
-        case 'LOGOUT':
-            return ''
-        default:
-            throw new Error()
+      case 'LOGIN':
+      case 'REGISTER':
+        return action.username
+      case 'LOGOUT':
+        return ''
+      default:
+        throw new Error()
     }
   }
 
-  function todoReducer (state, action) {
+  function todoReducer(state, action) {
     switch (action.type) {
-        case 'CREATE_TODO':
-           const newTodo = { 
-              title: action.title,
-              description: action.description, 
-              dateCreated: action.dateCreated,
-              completed: action.completed 
-            }
-            return [ newTodo, ...state ]
-        case 'TOGGLE_TODO':
-           return state.map(todo => {
-             if (todo.title !== action.title) {
-               return todo;
-             } else {
-               return {
-                 ...todo,
-                 completed: !todo.completed
-               };
-             }
-           });
-         default:
-            throw new Error()
+      case 'CREATE_TODO':
+        const newTodo = {
+          title: action.title,
+          description: action.description,
+          dateCreated: action.dateCreated,
+          completed: action.completed
+        }
+        return [newTodo, ...state]
+      default:
+        throw new Error()
     }
-}
+  }
 
-
-  const [ user, dispatchUser ] = useReducer(userReducer, '')
-  const [ todos, dispatchTodos ] = useReducer(todoReducer, initialPosts)
+  const [user, dispatchUser] = useReducer(userReducer, '')
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialPosts)
 
   return (
     <div>
-      <UserBar user={user} dispatchUser={dispatchUser} /> 
+      <UserBar user={user} dispatchUser={dispatchUser} />
       <br /><br /><hr /><br />
       {user && <CreateTodo user={user} dispatch={dispatchTodos} />}
       <TodoList todos={todos} />

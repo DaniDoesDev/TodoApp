@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-export default function CreateTodo({user, dispatch}) {
+export default function CreateTodo({ user, dispatch }) {
 
-    const [ title, setTitle ] = useState('')
-    const [ description, setDescription ] = useState('')
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
 
-    function handleTitle (evt) { setTitle(evt.target.value) }
-    function handleDescription (evt) { setDescription(evt.target.value) }
+    function handleTitle(evt) { setTitle(evt.target.value) }
+    function handleDescription(evt) { setDescription(evt.target.value) }
 
 
     return (
-        <form onSubmit={e => {e.preventDefault(); dispatch({type: "CREATE_TODO", title, description, dateCreated: Date(Date.now()).toString(), completed: false});} }>
+        <form onSubmit={e => { e.preventDefault(); dispatch({ type: "CREATE_TODO", title, description, dateCreated: Date(Date.now()).toString(), completed: false }); }}>
 
             <div>Author: <b>{user}</b></div>
 
@@ -22,7 +22,7 @@ export default function CreateTodo({user, dispatch}) {
             <textarea value={description} onChange={handleDescription} />
             <input type="submit" value="Create" />
 
-           
+
 
         </form>
     )

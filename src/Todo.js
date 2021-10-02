@@ -1,23 +1,27 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-export default function Todo({ title, description, dateCreated, completed}) {
-     const [checked, setChecked] = useState(completed);
-
-    function handleChange() {
-        completed = !completed;
-      }
+export default function Todo({ title, description, dateCreated, completed }) {
+    const [checked, setChecked] = useState(completed);
+    const [dateCompleted, setDateCompleted] = useState('')
 
     return (
         <div>
             <h3>{title}</h3>
             <div>{description}</div>
             <div> Date created: {dateCreated} </div>
-            <form> 
+            <form>
                 <label> Complete?
-                    <input type="checkbox" name="box-id" value={completed} onChange={handleChange} />
-                </label> 
+                    <input type="checkbox" name="box-id" value={completed} checked={checked} onClick={e => {
+                        setChecked(prevCheck => !prevCheck);
+                        if (!checked) {
+                            setDateCompleted(Date(Date.now()).toString());
+                        } else {
+                            setDateCompleted('');
+                        }
+                    }} />
+                </label>
             </form>
-            <div> {completed && <text> Date completed: {Date(Date.now()).toString()} </text> }</div>
+            <div> <text> Date completed: {dateCompleted} </text> </div>
             <br />
         </div>
     )
