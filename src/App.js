@@ -1,6 +1,9 @@
 import UserBar from "./user/UserBar";
 import CreateTodo from "./CreateTodo";
+import DeleteTodo from "./DeleteTodo";
+import ToggleTodo from "./ToggleTodo";
 import TodoList from "./TodoList";
+import appReducer from './reducers';
 import React, { useReducer } from 'react'
 
 function App() {
@@ -10,57 +13,37 @@ function App() {
       title: "Complete CSC 436 Todo App",
       description: "Due on Tuesday!",
       dateCreated: Date(Date.now()).toString(),
-      completed: false
+      completed: false,
+      dateCompleted: ''
     },
     {
       title: "Wash Clothes",
       description: "Don't forget to dry them!",
       dateCreated: Date(Date.now()).toString(),
-      completed: false
+      completed: false,
+      dateCompleted: ''
     },
     {
       title: "Do Groceries",
       description: "Get healthier foods",
       dateCreated: Date(Date.now()).toString(),
-      completed: false
+      completed: false,
+      dateCompleted: ''
     },
   ]
 
-  function userReducer(state, action) {
-    switch (action.type) {
-      case 'LOGIN':
-      case 'REGISTER':
-        return action.username
-      case 'LOGOUT':
-        return ''
-      default:
-        throw new Error()
-    }
-  }
-
-  function todoReducer(state, action) {
-    switch (action.type) {
-      case 'CREATE_TODO':
-        const newTodo = {
-          title: action.title,
-          description: action.description,
-          dateCreated: action.dateCreated,
-          completed: action.completed
-        }
-        return [newTodo, ...state]
-      default:
-        throw new Error()
-    }
-  }
-
-  const [user, dispatchUser] = useReducer(userReducer, '')
-  const [todos, dispatchTodos] = useReducer(todoReducer, initialPosts)
+  const [ state, dispatch ] = useReducer(appReducer, { user: '', todos: initialPosts })
+  const {user, todos} = state;
 
   return (
     <div>
-      <UserBar user={user} dispatchUser={dispatchUser} />
+      <UserBar user={user} dispatchUser={dispatch} />
       <br /><br /><hr /><br />
-      {user && <CreateTodo user={user} dispatch={dispatchTodos} />}
+      {user && <CreateTodo user={user} dispatch={dispatch} />}
+      <br />
+      {user && <DeleteTodo dispatch={dispatch} />}
+      <br />
+      {user && <ToggleTodo dispatch={dispatch} />}
       <TodoList todos={todos} />
     </div>
   )
