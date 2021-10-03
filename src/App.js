@@ -32,8 +32,8 @@ function App() {
     },
   ]
 
-  const [ state, dispatch ] = useReducer(appReducer, { user: '', todos: initialPosts })
-  const {user, todos} = state;
+  const [state, dispatch] = useReducer(appReducer, { user: '', todos: initialPosts })
+  const { user, todos } = state;
 
   return (
     <div>
@@ -41,9 +41,10 @@ function App() {
       <br /><br /><hr /><br />
       {user && <CreateTodo user={user} dispatch={dispatch} />}
       <br />
+      {user && <ToggleTodo dispatch={dispatch} />}
+      <br />
       {user && <DeleteTodo dispatch={dispatch} />}
       <br />
-      {user && <ToggleTodo dispatch={dispatch} />}
       <TodoList todos={todos} />
     </div>
   )

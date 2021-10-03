@@ -19,14 +19,14 @@ export default function CreateTodo({ user, dispatch }) {
 
             <div>
                 <label htmlFor="create-title">Todo Item Title:</label>
-                <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" />
+                <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" required/>
             </div>
 
             <textarea value={description} onChange={handleDescription} />
             <input type="submit" value="Create" />
 
-            <div> 
-                <label> Complete? 
+            <div>
+                <label> Already Completed? Click Here!
                     <input type="checkbox" name="box-id" value={completed} checked={completed} onClick={e => {
                         setCompleted(!completed)
                         if (completed === true) {
@@ -37,9 +37,6 @@ export default function CreateTodo({ user, dispatch }) {
                     }} />
                 </label>
             </div>
-
-
-
         </form>
     )
 }
