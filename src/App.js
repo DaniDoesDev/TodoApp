@@ -5,6 +5,7 @@ import ToggleTodo from "./ToggleTodo";
 import TodoList from "./TodoList";
 import appReducer from './reducers';
 import React, { useReducer } from 'react'
+import { StateContext } from './contexts'
 
 function App() {
 
@@ -33,19 +34,21 @@ function App() {
   ]
 
   const [state, dispatch] = useReducer(appReducer, { user: '', todos: initialPosts })
-  const { user, todos } = state;
+  const { user } = state;
 
   return (
     <div>
-      <UserBar user={user} dispatchUser={dispatch} />
-      <br /><br /><hr /><br />
-      {user && <CreateTodo user={user} dispatch={dispatch} />}
-      <br />
-      {user && <ToggleTodo dispatch={dispatch} />}
-      <br />
-      {user && <DeleteTodo dispatch={dispatch} />}
-      <br />
-      <TodoList todos={todos} />
+      <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
+        <UserBar />
+        <br /><br /><hr /><br />
+        {user && <CreateTodo />}
+        <br />
+        {user && <ToggleTodo />}
+        <br />
+        {user && <DeleteTodo />}
+        <br />
+        <TodoList />
+      </StateContext.Provider>
     </div>
   )
 }

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { StateContext } from './contexts'
 
-export default function ToggleTodo({ dispatch }) {
+export default function ToggleTodo() {
 
+    const {dispatch} = useContext(StateContext)
     const [title, setTitle] = useState('')
 
     function handleTitle(evt) { setTitle(evt.target.value) }

@@ -1,6 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { StateContext } from './contexts'
 
-export default function CreateTodo({ user, dispatch }) {
+export default function CreateTodo() {
+
+    const {state, dispatch} = useContext(StateContext)
+    const { user } = state
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
