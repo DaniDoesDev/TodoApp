@@ -6,8 +6,8 @@ export default function Todo({ title, description, dateCreated, completed, dateC
     return (
         <div>
             <h3>{title}</h3>
-            <div>{id}</div>
             <div>{description}</div>
+            <div>Todo ID: {id}</div>
             <div> Date created: {dateCreated} </div>
             {/* <div> Completed?: {completed.toString()} </div> */}
             <div>
@@ -17,7 +17,8 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                     }} />
                 </label>
             </div>
-            <div> {completed && <text> Date completed: {Date(Date.now()).toString()} </text>}</div>
+            {/* <div> {completed && <text> Date completed: {Date(Date.now()).toString()} </text>}</div> */}
+            <div> {completed && <text> Date completed: {dateCompleted} </text>}</div>
             <br />
         </div>
     )

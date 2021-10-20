@@ -7,10 +7,10 @@ export default function DeleteTodo() {
     const {dispatch} = useContext(StateContext)
     const [id, setId] = useState()
 
-    function handleId(evt) { setId(parseInt(evt.target.value)) }
+    function handleId(evt) { setId(evt.target.value) }
 
     const [todo , deleteTodo ] = useResource(({ id }) => ({
-        url: `/todos/${id}`,
+        url: `/todos/${parseInt(id)}`,
         method: 'delete',
         data: { id } 
     }))
@@ -20,7 +20,8 @@ export default function DeleteTodo() {
     }
 
     useEffect(() => {
-        dispatch({ type: "DELETE_TODO", id })
+        var idNum = parseInt(id);
+        dispatch({ type: "DELETE_TODO", id: parseInt(id) })
     }, [todo])
 
     return (
