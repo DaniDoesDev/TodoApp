@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { StateContext } from './contexts'
 import { useResource } from 'react-request-hook'
 
@@ -19,14 +19,6 @@ export default function ToggleTodo() {
         data: { id, completed, dateCompleted } 
     }))
 
-    // function handleToggle () {
-    //     toggleTodo({ id, completed })
-    // }
-
-    //  useEffect(() => {
-    //      dispatch({ type: "TOGGLE_TODO", id })
-    //  }, [todo])
-
      function handleToggle( targetId ) {
         todos.forEach(function (todo) {
             if (todo.id === targetId) {
@@ -38,7 +30,7 @@ export default function ToggleTodo() {
      }
 
     return (
-        <form onSubmit={e => { e.preventDefault(); dispatch({ type: "TOGGLE_TODO", id: parseInt(id) }); handleToggle( parseInt(id) ) }}>
+        <form onSubmit={e => { e.preventDefault(); dispatch({ type: "TOGGLE_TODO", id: parseInt(id) }); handleToggle(parseInt(id)) }}>
 
             <div>
                 <label htmlFor="toggle-id">Todo Item ID To Be Toggled:</label>

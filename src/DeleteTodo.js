@@ -20,7 +20,6 @@ export default function DeleteTodo() {
     }
 
     useEffect(() => {
-        var idNum = parseInt(id);
         dispatch({ type: "DELETE_TODO", id: parseInt(id) })
     }, [todo])
 

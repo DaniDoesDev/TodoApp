@@ -9,7 +9,6 @@ export default function Todo({ title, description, dateCreated, completed, dateC
             <div>{description}</div>
             <div>Todo ID: {id}</div>
             <div> Date created: {dateCreated} </div>
-            {/* <div> Completed?: {completed.toString()} </div> */}
             <div>
                 <label> Completed?
                     <input type="checkbox" name="box-id" value={completed} checked={completed} onChange={e => {
@@ -17,7 +16,6 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                     }} />
                 </label>
             </div>
-            {/* <div> {completed && <text> Date completed: {Date(Date.now()).toString()} </text>}</div> */}
             <div> {completed && <text> Date completed: {dateCompleted} </text>}</div>
             <br />
         </div>

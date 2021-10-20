@@ -10,30 +10,6 @@ import { useResource } from 'react-request-hook'
 
 function App() {
 
-  // const initialPosts = [
-  //   {
-  //     title: "Complete CSC 436 Todo App",
-  //     description: "Due on Tuesday!",
-  //     dateCreated: Date(Date.now()).toString(),
-  //     completed: false,
-  //     dateCompleted: ''
-  //   },
-  //   {
-  //     title: "Wash Clothes",
-  //     description: "Don't forget to dry them!",
-  //     dateCreated: Date(Date.now()).toString(),
-  //     completed: false,
-  //     dateCompleted: ''
-  //   },
-  //   {
-  //     title: "Do Groceries",
-  //     description: "Get healthier foods",
-  //     dateCreated: Date(Date.now()).toString(),
-  //     completed: false,
-  //     dateCompleted: ''
-  //   },
-  // ]
-
   const [state, dispatch] = useReducer(appReducer, { user: '', todos: [] })
 
   const [todos, getTodos] = useResource(() => ({
@@ -48,8 +24,6 @@ function App() {
       dispatch({ type: 'FETCH_TODOS', todos: todos.data.reverse() })
     }
   }, [todos])
-
-
   
   const { user } = state;
 
