@@ -1,19 +1,34 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { StateContext } from './contexts'
+import { useResource } from 'react-request-hook'
 
 export default function DeleteTodo() {
 
     const {dispatch} = useContext(StateContext)
-    const [title, setTitle] = useState('')
+    const [id, setId] = useState()
 
-    function handleTitle(evt) { setTitle(evt.target.value) }
+    function handleId(evt) { setId(parseInt(evt.target.value)) }
+
+    const [todo , deleteTodo ] = useResource(({ id }) => ({
+        url: `/todos/${id}`,
+        method: 'delete',
+        data: { id } 
+    }))
+
+    function handleDelete () {
+        deleteTodo({ id })
+    }
+
+    useEffect(() => {
+        dispatch({ type: "DELETE_TODO", id })
+    }, [todo])
 
     return (
-        <form onSubmit={e => { e.preventDefault(); dispatch({ type: "DELETE_TODO", title }); }}>
+        <form onSubmit={e => { e.preventDefault(); handleDelete(); }}>
 
             <div>
-                <label htmlFor="delete-title">Todo Item Title To Be Deleted, case sensitive:</label>
-                <input type="text" value={title} onChange={handleTitle} name="delete-title" id="delete-title" />
+                <label htmlFor="delete-id">Todo Item ID To Be Deleted:</label>
+                <input type="text" value={id} onChange={handleId} name="delete-id" id="delete-id" />
                 <input type="submit" value="Delete" />
             </div>
         </form>

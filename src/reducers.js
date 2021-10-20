@@ -18,7 +18,8 @@ function todoReducer(state, action) {
                 description: action.description,
                 dateCreated: action.dateCreated,
                 completed: action.completed,
-                dateCompleted: action.dateCompleted
+                dateCompleted: action.dateCompleted,
+                id: action.id
             }
             return [newTodo, ...state]
         case 'TOGGLE_TODO':
@@ -26,7 +27,7 @@ function todoReducer(state, action) {
                 (todo.title === action.title) ? { ...todo, completed: !todo.completed } : todo)
         case 'DELETE_TODO':
             return state.filter(todo =>
-                todo.title !== action.title);
+                todo.id !== action.id);
         case 'FETCH_TODOS':
             return action.todos
         default:

@@ -1,11 +1,12 @@
 import React from 'react';
 
-export default function Todo({ title, description, dateCreated, completed, dateCompleted }) {
+export default function Todo({ title, description, dateCreated, completed, dateCompleted, id }) {
 
 
     return (
         <div>
             <h3>{title}</h3>
+            <div>{id}</div>
             <div>{description}</div>
             <div> Date created: {dateCreated} </div>
             {/* <div> Completed?: {completed.toString()} </div> */}
