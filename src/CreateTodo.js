@@ -26,7 +26,7 @@ export default function CreateTodo() {
     }
 
     useEffect(() => {
-        if (todo && todo.data) {
+        if (todo && todo.isLoading === false && todo.data) {
             dispatch({type: "CREATE_TODO", title: todo.data.title, description: todo.data.description, dateCreated: todo.data.dateCreated, completed: todo.data.completed, dateCompleted: todo.data.dateCompleted, id: todo.data.id })
         }
     }, [todo])
