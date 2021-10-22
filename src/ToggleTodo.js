@@ -6,8 +6,6 @@ export default function ToggleTodo() {
 
     const { state, dispatch } = useContext(StateContext)
     const [id, setId] = useState()
-    const [completed, setCompleted] = useState()
-    const [dateCompleted, setDateCompleted] = useState()
 
     const { todos } = state
 
@@ -22,14 +20,17 @@ export default function ToggleTodo() {
     function handleToggle(targetId) {
         const todoToUpdate = todos.find(todo => todo.id === targetId)
 
-        todoToUpdate.completed = !todoToUpdate.completed
-        if (todoToUpdate.completed) {
-            todoToUpdate.dateCompleted = Date(Date.now()).toString();
-        } else {
-            todoToUpdate.dateCompleted = "";
+        try {
+            todoToUpdate.completed = !todoToUpdate.completed
+            if (todoToUpdate.completed) {
+                todoToUpdate.dateCompleted = Date(Date.now()).toString();
+            } else {
+                todoToUpdate.dateCompleted = "";
+            }
+            toggleTodo({ ...todoToUpdate });
+        } catch {
+            console.log("This todo ID does not exist")
         }
-        
-        toggleTodo({ ...todoToUpdate });
     }
 
     useEffect(() => {
