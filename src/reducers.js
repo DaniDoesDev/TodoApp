@@ -5,6 +5,8 @@ function userReducer(state, action) {
             return action.username
         case 'LOGOUT':
             return ''
+        case 'FETCH_USERS':
+            return action.users
         default:
             return state;
     }
@@ -19,7 +21,8 @@ function todoReducer(state, action) {
                 dateCreated: action.dateCreated,
                 completed: action.completed,
                 dateCompleted: action.dateCompleted,
-                id: action.id
+                id: action.id,
+                author: action.author
             }
             return [newTodo, ...state]
         case 'TOGGLE_TODO':
@@ -46,6 +49,7 @@ function todoReducer(state, action) {
 export default function appReducer(state, action) {
     return {
         user: userReducer(state.user, action),
+        users: userReducer(state.users, action),
         todos: todoReducer(state.todos, action)
     }
 }

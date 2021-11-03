@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Todo({ title, description, dateCreated, completed, dateCompleted, id }) {
+export default function Todo({ title, description, dateCreated, completed, dateCompleted, id, author }) {
 
 
     return (
@@ -8,6 +8,7 @@ export default function Todo({ title, description, dateCreated, completed, dateC
             <h3>{title}</h3>
             <div>{description}</div>
             <div>Todo ID: {id}</div>
+            <div>Written By: {author}</div>
             <div> Date created: {dateCreated} </div>
             <div>
                 <label> Completed?

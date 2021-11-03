@@ -1,8 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useResource } from 'react-request-hook'
 import { StateContext } from '../contexts';
+import { useNavigation } from 'react-navi'
+
 
 export default function Login() {
+
+    const navigation = useNavigation()
 
     const { dispatch } = useContext(StateContext)
 
@@ -23,6 +27,7 @@ export default function Login() {
             if (user.data.length > 0) {
                 setLoginFailed(false)
                 dispatch({ type: 'LOGIN', username: user.data[0].username })
+                navigation.navigate(`/users/${user.data[0].username}`)
             } else {
                 setLoginFailed(true)
             }

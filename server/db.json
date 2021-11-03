@@ -6,7 +6,8 @@
       "description": "Due on Tuesday!",
       "dateCreated": "Tue Oct 12 2021 20:33:14 GMT-0500 (CDT)",
       "completed": false,
-      "dateCompleted": ""
+      "dateCompleted": "",
+      "author": "danielle"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "description": "Don't forget to dry them!",
       "dateCreated": "Tue Oct 12 2021 20:33:14 GMT-0500 (CDT)",
       "completed": false,
-      "dateCompleted": ""
+      "dateCompleted": "",
+      "author": "danielle"
     },
     {
       "id": 3,
@@ -22,15 +24,71 @@
       "description": "Get healthier foods",
       "dateCreated": "Tue Oct 12 2021 20:33:14 GMT-0500 (CDT)",
       "completed": false,
-      "dateCompleted": ""
+      "dateCompleted": "",
+      "author": "danielle"
     },
     {
       "title": "TEST",
       "description": "TEST",
       "dateCreated": "Wed Oct 20 2021 21:03:37 GMT-0500 (CDT)",
       "completed": true,
-      "dateCompleted": "Thu Oct 21 2021 21:15:54 GMT-0500 (CDT)",
-      "id": 4
+      "dateCompleted": "Fri Oct 22 2021 17:54:54 GMT-0500 (CDT)",
+      "id": 4,
+      "author": "TEST"
+    },
+    {
+      "title": "New Todo",
+      "description": "TXT",
+      "dateCreated": "Wed Nov 03 2021 16:59:53 GMT-0500 (CDT)",
+      "completed": true,
+      "dateCompleted": "Wed Nov 03 2021 16:59:50 GMT-0500 (CDT)",
+      "author": "danielle",
+      "id": 5
+    },
+    {
+      "title": "testing",
+      "description": "test",
+      "dateCreated": "Wed Nov 03 2021 17:01:17 GMT-0500 (CDT)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
+      "id": 6
+    },
+    {
+      "title": "test2",
+      "description": "test2",
+      "dateCreated": "Wed Nov 03 2021 17:05:31 GMT-0500 (CDT)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
+      "id": 7
+    },
+    {
+      "title": "test 3",
+      "description": "test3",
+      "dateCreated": "Wed Nov 03 2021 17:06:06 GMT-0500 (CDT)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "",
+      "id": 8
+    },
+    {
+      "title": "test4",
+      "description": "test4",
+      "dateCreated": "Wed Nov 03 2021 17:08:01 GMT-0500 (CDT)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "",
+      "id": 9
+    },
+    {
+      "title": "test5",
+      "description": "test5",
+      "dateCreated": "Wed Nov 03 2021 17:09:18 GMT-0500 (CDT)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "",
+      "id": 10
     }
   ],
   "users": [
@@ -48,6 +106,11 @@
       "username": "username",
       "password": "pass",
       "id": 3
+    },
+    {
+      "username": "test2",
+      "password": "test2",
+      "id": 4
     }
   ]
 }
