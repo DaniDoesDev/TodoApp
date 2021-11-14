@@ -7,6 +7,8 @@ import CreateTodo from '../CreateTodo'
 export default function ProfilePage ( { author }) {
 
     const { state, dispatch } = useContext(StateContext)
+    const { user } = state;
+
     const [todos, getTodos] = useResource(() => ({
       url: `/todos?author=${author}`,
       method: 'get'
@@ -20,11 +22,15 @@ export default function ProfilePage ( { author }) {
       }
     }, [todos])
 
+    function isAuthor( user ) {
+      return user === author? true :  false
+    }
+
 
     const { data, isLoading } = todos;
     return (
         <>
-        <CreateTodo />
+        {isAuthor(user) && <CreateTodo />}
           {isLoading && 'Todos loading...'} <TodoList todos = {data} />
         </>
     )

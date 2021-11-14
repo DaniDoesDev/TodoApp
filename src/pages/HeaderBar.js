@@ -22,7 +22,7 @@ export default function HeaderBar() {
             <Link href="/users"> Access User Page</Link>
             {/* <CreateTodo /> */}
              <br /> 
-            {user && <ProfilePage author = {user} />}<br />
+            {/* {user && <ProfilePage author = {user} />}<br /> */}
         </>
     )
 }
