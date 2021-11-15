@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import { StateContext } from '../contexts'
 import { useResource } from 'react-request-hook'
 import UserList from '../UserList'
+import { Link } from 'react-navi'
 
 export default function UsersPage () {
 
@@ -24,6 +25,7 @@ export default function UsersPage () {
     return (
         <>
           {isLoading && 'Users loading...'} <UserList users = {data} />
+          <div><Link href="/">Go back to homepage</Link></div>
         </>
     )
 } 

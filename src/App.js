@@ -13,6 +13,7 @@ import ProfilePage from "./pages/ProfilePage";
 import UsersPage from "./pages/UsersPage";
 import { mount, route } from 'navi';
 import { Router, View } from 'react-navi';
+import { Container } from "react-bootstrap";
 
 
 function App() {
@@ -49,19 +50,19 @@ function App() {
         {/* <HeaderBar />
         <HomePage /> */}
         <Router routes={routes}>
-          <div style={{ padding: 8 }}>
+          <Container>
             <HeaderBar />
             <hr />
             <View />
-          </div>
+          </Container>
         </Router>
         {/* <UserBar />
         <br /><br /><hr /><br />
         {user && <CreateTodo />} */}
         <br />
-        {user && <ToggleTodo />}
+        {/* {user && <ToggleTodo />}
         <br />
-        {user && <DeleteTodo />}
+        {user && <DeleteTodo />} */}
         <br />
         {/* <TodoList /> */}
         {/* <ProfilePage author = {user}/> */}

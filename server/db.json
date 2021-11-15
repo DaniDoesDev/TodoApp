@@ -28,94 +28,85 @@
       "author": "danielle"
     },
     {
-      "title": "TEST",
-      "description": "TEST",
-      "dateCreated": "Wed Oct 20 2021 21:03:37 GMT-0500 (CDT)",
-      "completed": true,
-      "dateCompleted": "Fri Oct 22 2021 17:54:54 GMT-0500 (CDT)",
-      "id": 4,
-      "author": "TEST"
-    },
-    {
       "title": "New Todo",
       "description": "TXT",
       "dateCreated": "Wed Nov 03 2021 16:59:53 GMT-0500 (CDT)",
       "completed": true,
       "dateCompleted": "Wed Nov 03 2021 16:59:50 GMT-0500 (CDT)",
       "author": "danielle",
+      "id": 4
+    },
+    {
+      "title": "TEST",
+      "description": "TEST",
+      "dateCreated": "Mon Nov 15 2021 13:59:24 GMT-0600 (CST)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
       "id": 5
     },
     {
       "title": "testing",
       "description": "test",
-      "dateCreated": "Wed Nov 03 2021 17:01:17 GMT-0500 (CDT)",
+      "dateCreated": "Mon Nov 15 2021 14:00:09 GMT-0600 (CST)",
       "completed": false,
       "dateCompleted": "",
       "author": "danielle",
       "id": 6
     },
     {
-      "title": "test2",
-      "description": "test2",
-      "dateCreated": "Wed Nov 03 2021 17:05:31 GMT-0500 (CDT)",
+      "title": "hello",
+      "description": "hello",
+      "dateCreated": "Mon Nov 15 2021 14:00:33 GMT-0600 (CST)",
       "completed": false,
       "dateCompleted": "",
       "author": "danielle",
       "id": 7
     },
     {
-      "title": "test 3",
-      "description": "test3",
-      "dateCreated": "Wed Nov 03 2021 17:06:06 GMT-0500 (CDT)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "",
-      "id": 8
-    },
-    {
-      "title": "test4",
-      "description": "test4",
-      "dateCreated": "Wed Nov 03 2021 17:08:01 GMT-0500 (CDT)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "",
-      "id": 9
-    },
-    {
       "title": "test5",
       "description": "test5",
-      "dateCreated": "Wed Nov 03 2021 17:09:18 GMT-0500 (CDT)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "",
-      "id": 10
-    },
-    {
-      "title": "LOGINTEST",
-      "description": "TESTING",
-      "dateCreated": "Wed Nov 03 2021 17:56:33 GMT-0500 (CDT)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "TEST",
-      "id": 11
-    },
-    {
-      "title": "helloall",
-      "description": "hey everyone",
-      "dateCreated": "Sat Nov 13 2021 17:00:01 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "",
-      "id": 12
-    },
-    {
-      "title": "hey all",
-      "description": "hey y'all",
-      "dateCreated": "Sat Nov 13 2021 17:00:33 GMT-0600 (CST)",
+      "dateCreated": "Mon Nov 15 2021 14:07:37 GMT-0600 (CST)",
       "completed": false,
       "dateCompleted": "",
       "author": "danielle",
-      "id": 13
+      "id": 8
+    },
+    {
+      "title": "fgsdfgsd",
+      "description": "sdgsdg",
+      "dateCreated": "Mon Nov 15 2021 14:08:02 GMT-0600 (CST)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
+      "id": 9
+    },
+    {
+      "title": "dsfsdfdas",
+      "description": "afafsaf",
+      "dateCreated": "Mon Nov 15 2021 14:08:27 GMT-0600 (CST)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
+      "id": 10
+    },
+    {
+      "title": "TEsTesfsdfsf",
+      "description": "sdfsfsdfdsf",
+      "dateCreated": "Mon Nov 15 2021 14:08:40 GMT-0600 (CST)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
+      "id": 11
+    },
+    {
+      "title": "sdfrsdxfsdf",
+      "description": "sdfsdfsdf",
+      "dateCreated": "Mon Nov 15 2021 14:09:22 GMT-0600 (CST)",
+      "completed": false,
+      "dateCompleted": "",
+      "author": "danielle",
+      "id": 12
     }
   ],
   "users": [
@@ -135,7 +126,7 @@
       "id": 3
     },
     {
-      "username": "test2",
+      "username": "ned",
       "password": "test2",
       "id": 4
     }

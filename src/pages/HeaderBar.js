@@ -15,11 +15,11 @@ export default function HeaderBar() {
 
     return (
         <>
-            <Header text="My Blog" />
+            <Header text="My Todo List - Homepage" />
             <React.Suspense fallback={"Loading..."}>
                 <UserBar />
             </React.Suspense> <br /><br />
-            <Link href="/users"> Access User Page</Link>
+            <Link href="/users"> Access Users Page</Link>
             {/* <CreateTodo /> */}
              <br /> 
             {/* {user && <ProfilePage author = {user} />}<br /> */}

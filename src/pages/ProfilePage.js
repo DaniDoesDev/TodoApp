@@ -3,6 +3,7 @@ import { StateContext } from '../contexts'
 import { useResource } from 'react-request-hook'
 import TodoList from '../TodoList'
 import CreateTodo from '../CreateTodo'
+import { Link } from 'react-navi'
 
 export default function ProfilePage ( { author }) {
 
@@ -32,6 +33,7 @@ export default function ProfilePage ( { author }) {
         <>
         {isAuthor(user) && <CreateTodo />}
           {isLoading && 'Todos loading...'} <TodoList todos = {data} />
+          <div><Link href="/">Go back to homepage</Link></div>
         </>
     )
 } 
