@@ -18,7 +18,7 @@ export default function HeaderBar() {
             <Header text="My Todo List - Homepage" />
             <React.Suspense fallback={"Loading..."}>
                 <UserBar />
-            </React.Suspense> <br /><br />
+            </React.Suspense> <br />
             <Link href="/users"> Access Users Page</Link>
             {/* <CreateTodo /> */}
              <br /> 
