@@ -2,9 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useResource } from 'react-request-hook'
 import { StateContext } from '../contexts';
 import {Form, Modal, Button} from 'react-bootstrap'
+import { useNavigation } from 'react-navi'
 
 export default function Register({show, handleClose}) {
 
+    const navigation = useNavigation()
     const {dispatch} = useContext(StateContext)
 
     const [formData, setFormData] = useState({
@@ -22,6 +24,7 @@ export default function Register({show, handleClose}) {
     useEffect(() => {
         if (user && user.data) {
             dispatch({ type: 'REGISTER', username: user.data.username })
+            navigation.navigate(`/users/${user.data.username}`)
         }
     }, [user])
 
