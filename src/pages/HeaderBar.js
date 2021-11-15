@@ -6,6 +6,7 @@ import { StateContext } from '../contexts'
 import ProfilePage from './ProfilePage'
 import UsersPage from './UsersPage'
 import { Link } from 'react-navi';
+import { Navbar, Nav, Container } from 'react-bootstrap'
 
 
 export default function HeaderBar() {
@@ -14,15 +15,19 @@ export default function HeaderBar() {
     const { user } = state
 
     return (
-        <>
-            <Header text="My Todo List - Homepage" />
+        <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="/"><Header text="My Todo List - Homepage" /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              {user && <Nav.Link><Link href="/users">Access Users Page</Link></Nav.Link>}
+            </Nav>
             <React.Suspense fallback={"Loading..."}>
-                <UserBar />
-            </React.Suspense> <br />
-            <Link href="/users"> Access Users Page</Link>
-            {/* <CreateTodo /> */}
-             <br /> 
-            {/* {user && <ProfilePage author = {user} />}<br /> */}
-        </>
+              <UserBar />
+            </React.Suspense>
+          </Navbar.Collapse>
+        </Container>
+        </Navbar>
     )
 }

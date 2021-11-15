@@ -21,11 +21,11 @@ export default function UserBar() {
         return (
 
             <div className="justify-content-end">
-                <Button variant="primary" onClick={(e) => setShowLogin(true)}>
+                <Button variant="link" onClick={(e) => setShowLogin(true)}>
                     Login
                 </Button>
                 <Login show={showLogin} handleClose={() => setShowLogin(false)} />
-                <Button variant="primary" onClick={(e) => setShowRegister(true)}>
+                <Button variant="link" onClick={(e) => setShowRegister(true)}>
                     Register
                 </Button>
                 <Register show={showRegister} handleClose={() => setShowRegister(false)} />
