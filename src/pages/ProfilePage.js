@@ -4,6 +4,8 @@ import { useResource } from 'react-request-hook'
 import TodoList from '../TodoList'
 import CreateTodo from '../CreateTodo'
 import { Link } from 'react-navi'
+import ToggleTodo from '../ToggleTodo'
+import DeleteTodo from '../DeleteTodo'
 
 export default function ProfilePage ( { author }) {
 
@@ -31,7 +33,9 @@ export default function ProfilePage ( { author }) {
     const { data, isLoading } = todos;
     return (
         <>
-        {isAuthor(user) && <CreateTodo />}
+        {isAuthor(user) && <CreateTodo />} <br />
+        {isAuthor(user) && <ToggleTodo />} <br />
+        {isAuthor(user) && <DeleteTodo />} <br />
           {isLoading && 'Todos loading...'} <TodoList todos = {data} />
           <div><Link href="/">Go back to homepage</Link></div>
         </>
