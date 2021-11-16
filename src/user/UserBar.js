@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import Login from './Login'
-import Logout from './Logout'
 import Register from './Register'
 import { StateContext } from '../contexts';
 import { Button } from 'react-bootstrap'
@@ -10,12 +9,11 @@ export default function UserBar() {
     const Logout = React.lazy(() => import('./Logout'))
 
     const { state } = useContext(StateContext)
-    const { user } = state
 
     const [showLogin, setShowLogin] = useState(false)
     const [showRegister, setShowRegister] = useState(false)
 
-    if (user) {
+    if (state.user.username) {
         return <Logout />
     } else {
         return (

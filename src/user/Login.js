@@ -5,7 +5,7 @@ import { useNavigation } from 'react-navi'
 import { Modal, Form, Button } from 'react-bootstrap';
 
 
-export default function Login({show, handleClose}) {
+export default function Login({ show, handleClose }) {
 
     const navigation = useNavigation()
 
@@ -19,41 +19,56 @@ export default function Login({show, handleClose}) {
     function handlePassword(evt) { setPassword(evt.target.value) }
 
     const [user, login] = useResource((username, password) => ({
-        url: `/login/${encodeURI(username)}/${encodeURI(password)}`,
-        method: 'get'
+        url: 'auth/login',
+        method: 'post',
+        data: { username, password }
     }))
 
     useEffect(() => {
-        if (user && user.data) {
-            if (user.data.length > 0) {
-                setLoginFailed(false)
-                dispatch({ type: 'LOGIN', username: user.data[0].username })
-                navigation.navigate(`/users/${user.data[0].username}`)
-            } else {
+        if (user && user.isLoading === false && (user.data || user.error)) {
+            if (user.error) {
                 setLoginFailed(true)
+                alert('Login failed, please try again')
+            } else {
+                setLoginFailed(false)
+                console.log(user.data)
+                dispatch({ type: 'LOGIN', username, access_token: user.data.access_token })
+                navigation.navigate(`/users/${username}`)
             }
         }
     }, [user])
 
+    // useEffect(() => {
+    //     if (user && user.data) {
+    //         if (user.data.length > 0) {
+    //             setLoginFailed(false)
+    //             dispatch({ type: 'LOGIN', username: user.data[0].username })
+    //             navigation.navigate(`/users/${user.data[0].username}`)
+    //         } else {
+    //             setLoginFailed(true)
+    //         }
+    //     }
+    // }, [user])
+
     return (
         <Modal show={show} onHide={handleClose}>
-        <Form onSubmit={e => { e.preventDefault(); login(username, password); handleClose() }}>
-        <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form.Label htmlFor="login-username">Username:</Form.Label>
-          <Form.Control type="text" value={username} onChange={handleUsername} name="login-username" id="login-username" />
-          <Form.Label htmlFor="login-password">Password:</Form.Label>
-          <Form.Control type="password" value={password} onChange={handlePassword} name="login-password" id="login-password" />
-          {loginFailed && <Form.Text style={{ color: 'red' }}>Invalid username or password</Form.Text>}
-          </Modal.Body>
-        <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-            <Button variant="primary" disabled={username.length === 0} type="submit">Login</Button>
-        </Modal.Footer>
-    </Form>
-    </Modal>
+            <Form onSubmit={e => { e.preventDefault(); login(username, password); handleClose() }}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Login</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Label htmlFor="login-username">Username:</Form.Label>
+                    <Form.Control type="text" value={username} onChange={handleUsername} name="login-username" id="login-username" />
+                    <Form.Label htmlFor="login-password">Password:</Form.Label>
+                    <Form.Control type="password" value={password} onChange={handlePassword} name="login-password" id="login-password" />
+                    {loginFailed && <Form.Text style={{ color: 'red' }}>Invalid username or password</Form.Text>}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+                    <Button variant="primary" disabled={username.length === 0} type="submit">Login</Button>
+                </Modal.Footer>
+            </Form>
+        </Modal>
 
     )
 }

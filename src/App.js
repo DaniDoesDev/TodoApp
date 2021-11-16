@@ -1,12 +1,6 @@
-import UserBar from "./user/UserBar";
-import CreateTodo from "./CreateTodo";
-import DeleteTodo from "./DeleteTodo";
-import ToggleTodo from "./ToggleTodo";
-import TodoList from "./TodoList";
 import appReducer from './reducers';
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer } from 'react'
 import { StateContext } from './contexts'
-import { useResource } from 'react-request-hook'
 import HeaderBar from "./pages/HeaderBar";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
@@ -18,20 +12,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
 
-  const [state, dispatch] = useReducer(appReducer, { user: '', users: [], todos: [] })
-
-  // const [todos, getTodos] = useResource(() => ({
-  //   url: '/todos',
-  //   method: 'get'
-  // }))
-
-  // useEffect(getTodos, [])
-
-  // useEffect(() => {
-  //   if (todos && todos.data) {
-  //     dispatch({ type: 'FETCH_TODOS', todos: todos.data.reverse() })
-  //   }
-  // }, [todos])
+  const [ state, dispatch ] = useReducer(appReducer, { user: {}, todos: [] })
   
   const { user } = state;
 

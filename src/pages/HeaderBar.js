@@ -12,7 +12,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 export default function HeaderBar() {
 
     const { state } = useContext(StateContext)
-    const { user } = state
+    // const { user } = state
 
     return (
         <Navbar bg="light" expand="lg">

@@ -33,9 +33,9 @@ export default function ProfilePage ( { author }) {
     const { data, isLoading } = todos;
     return (
         <>
-        {isAuthor(user) && <CreateTodo />} <br />
-        {isAuthor(user) && <ToggleTodo />} <br />
-        {isAuthor(user) && <DeleteTodo />} <br />
+        {isAuthor(user.username) && <CreateTodo />} <br />
+        {isAuthor(user.username) && <ToggleTodo />} <br />
+        {isAuthor(user.username) && <DeleteTodo />} <br />
           {isLoading && 'Todos loading...'} <TodoList todos = {data} />
           <div><Link href="/">Go back to homepage</Link></div>
         </>

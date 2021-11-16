@@ -36,7 +36,7 @@ export default function CreateTodo() {
 
         <form onSubmit={e => { e.preventDefault(); handleCreate(); }}>
 
-            <div>Author: <b>{user}</b></div>
+            <div>Author: <b>{user.username}</b></div>
 
             <div>
                 <label htmlFor="create-title">Todo Item Title:</label>
