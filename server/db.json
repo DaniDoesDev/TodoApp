@@ -33,80 +33,8 @@
       "dateCreated": "Wed Nov 03 2021 16:59:53 GMT-0500 (CDT)",
       "completed": true,
       "dateCompleted": "Wed Nov 03 2021 16:59:50 GMT-0500 (CDT)",
-      "author": "danielle",
+      "author": "ned",
       "id": 4
-    },
-    {
-      "title": "TEST",
-      "description": "TEST",
-      "dateCreated": "Mon Nov 15 2021 13:59:24 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 5
-    },
-    {
-      "title": "testing",
-      "description": "test",
-      "dateCreated": "Mon Nov 15 2021 14:00:09 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 6
-    },
-    {
-      "title": "hello",
-      "description": "hello",
-      "dateCreated": "Mon Nov 15 2021 14:00:33 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 7
-    },
-    {
-      "title": "test5",
-      "description": "test5",
-      "dateCreated": "Mon Nov 15 2021 14:07:37 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 8
-    },
-    {
-      "title": "fgsdfgsd",
-      "description": "sdgsdg",
-      "dateCreated": "Mon Nov 15 2021 14:08:02 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 9
-    },
-    {
-      "title": "dsfsdfdas",
-      "description": "afafsaf",
-      "dateCreated": "Mon Nov 15 2021 14:08:27 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 10
-    },
-    {
-      "title": "TEsTesfsdfsf",
-      "description": "sdfsfsdfdsf",
-      "dateCreated": "Mon Nov 15 2021 14:08:40 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 11
-    },
-    {
-      "title": "sdfrsdxfsdf",
-      "description": "sdfsdfsdf",
-      "dateCreated": "Mon Nov 15 2021 14:09:22 GMT-0600 (CST)",
-      "completed": false,
-      "dateCompleted": "",
-      "author": "danielle",
-      "id": 12
     }
   ],
   "users": [
@@ -129,6 +57,26 @@
       "username": "ned",
       "password": "test2",
       "id": 4
+    },
+    {
+      "username": "testinguser",
+      "password": "test",
+      "id": 5
+    },
+    {
+      "username": "sarah",
+      "password": "test",
+      "id": 6
+    },
+    {
+      "username": "dani",
+      "password": "test",
+      "id": 7
+    },
+    {
+      "username": "newuser2",
+      "password": "test",
+      "id": 8
     }
   ]
 }

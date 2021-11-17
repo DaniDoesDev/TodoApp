@@ -27,9 +27,10 @@ function todoReducer(state, action) {
                 dateCreated: action.dateCreated,
                 completed: action.completed,
                 dateCompleted: action.dateCompleted,
-                id: action.id,
+                _id: action._id,
                 author: action.author
             }
+            console.log(newTodo.id)
             return [newTodo, ...state]
         case 'TOGGLE_TODO':
             return state.map((todo) => {
@@ -43,9 +44,12 @@ function todoReducer(state, action) {
             }
             );
         case 'DELETE_TODO':
-            return state.filter(todo =>
-                todo.id !== action.id);
+            return state.filter((p) => p._id !== action.id)
+        // case 'DELETE_TODO':
+        //     return state.filter(todo =>
+        //         todo.id !== action.id);
         case 'FETCH_TODOS':
+            console.log(action.todos)
             return action.todos
         default:
             return state;

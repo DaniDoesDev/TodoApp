@@ -31,8 +31,6 @@ export default function HomePage () {
     return (
         <>
         <CreateTodo /> <br />
-        <ToggleTodo /> <br />
-        <DeleteTodo /> <br />
           {isLoading && 'Todos loading...'} <TodoList />
         </>
     )

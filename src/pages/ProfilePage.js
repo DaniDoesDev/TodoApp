@@ -42,8 +42,6 @@ export default function ProfilePage ( { author }) {
     return (
         <>
         {isAuthor(user.username) && <CreateTodo />} <br />
-        {isAuthor(user.username) && <ToggleTodo />} <br />
-        {isAuthor(user.username) && <DeleteTodo />} <br />
           {/* {isLoading && 'Todos loading...'} <TodoList todos = {data} /> */}
           {isLoading && 'Todos loading...'} <TodoList />
           <div><Link href="/">Go back to homepage</Link></div>
