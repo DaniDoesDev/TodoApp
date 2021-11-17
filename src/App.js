@@ -12,7 +12,7 @@ import { Container } from "react-bootstrap";
 
 function App() {
 
-  const [ state, dispatch ] = useReducer(appReducer, { user: {}, todos: [] })
+  const [ state, dispatch ] = useReducer(appReducer, { user: {}, users: [], todos: [] })
   
   const { user } = state;
 

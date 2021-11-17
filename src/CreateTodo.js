@@ -13,21 +13,31 @@ export default function CreateTodo() {
     function handleDescription(evt) { setDescription(evt.target.value) }
 
     const [todo , createTodo ] = useResource(({ title, description, dateCreated, completed, dateCompleted, author }) => ({
-        url: '/todos',
+        url: '/todo',
         method: 'post',
+        headers: {"Authorization": `${state.user.access_token}`},
         data: { title, description, dateCreated, completed, dateCompleted, author }
     }))
+
+
+    //     const [post , createPost ] = useResource(({ title, content, author }) => ({
+    //             url: '/post',
+    //             method: 'post',
+    //             headers: {"Authorization": `${state.user.access_token}`},
+    //             data: { title, content, author }
+    //         }))
+
 
     const {state, dispatch} = useContext(StateContext)
     const { user } = state
 
     function handleCreate () {
-        createTodo({ title, description, dateCreated: Date(Date.now()).toString(), completed, dateCompleted, author: user })
+        createTodo({ title, description, dateCreated: Date(Date.now()).toString(), completed, dateCompleted, author: user.username })
     }
 
     useEffect(() => {
         if (todo && todo.isLoading === false && todo.data) {
-            dispatch({type: "CREATE_TODO", title: todo.data.title, description: todo.data.description, dateCreated: todo.data.dateCreated, completed: todo.data.completed, dateCompleted: todo.data.dateCompleted, id: todo.data.id, author: user })
+            dispatch({type: "CREATE_TODO", title: todo.data.title, description: todo.data.description, dateCreated: todo.data.dateCreated, completed: todo.data.completed, dateCompleted: todo.data.dateCompleted, id: todo.data.id, author: user.username })
         }
     }, [todo])
 

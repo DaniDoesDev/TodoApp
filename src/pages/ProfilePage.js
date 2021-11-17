@@ -12,16 +12,24 @@ export default function ProfilePage ( { author }) {
     const { state, dispatch } = useContext(StateContext)
     const { user } = state;
 
-    const [todos, getTodos] = useResource(() => ({
-      url: `/todos?author=${author}`,
-      method: 'get'
-    }))
+    // const [todos, getTodos] = useResource(() => ({
+    //   url: `/todos?author=${author}`,
+    //   method: 'get'
+    // }))
 
-    useEffect(getTodos, [])
+    // useEffect(getTodos, [])
+
+    const [ todos, getTodos ] = useResource(() => ({
+      url: `/todo/${author}`,
+      headers: {"Authorization": `${state.user.access_token}`},
+      method: 'get'
+  }))
+
+  useEffect(getTodos, [author])
 
     useEffect(() => {
       if (todos && todos.data) {
-        dispatch({ type: 'FETCH_TODOS', todos: todos.data.reverse() })
+        dispatch({ type: 'FETCH_TODOS', todos: todos.data.todos })
       }
     }, [todos])
 
@@ -36,7 +44,8 @@ export default function ProfilePage ( { author }) {
         {isAuthor(user.username) && <CreateTodo />} <br />
         {isAuthor(user.username) && <ToggleTodo />} <br />
         {isAuthor(user.username) && <DeleteTodo />} <br />
-          {isLoading && 'Todos loading...'} <TodoList todos = {data} />
+          {/* {isLoading && 'Todos loading...'} <TodoList todos = {data} /> */}
+          {isLoading && 'Todos loading...'} <TodoList />
           <div><Link href="/">Go back to homepage</Link></div>
         </>
     )

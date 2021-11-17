@@ -11,6 +11,8 @@ function userReducer(state, action) {
                 'username': undefined,
                 'access_token': undefined
             }
+        case 'FETCH_USERS':
+            return action.users
         default:
             return state;
     }
@@ -53,7 +55,7 @@ function todoReducer(state, action) {
 export default function appReducer(state, action) {
     return {
         user: userReducer(state.user, action),
-        // users: userReducer(state.users, action),
+        users: userReducer(state.users, action),
         todos: todoReducer(state.todos, action)
     }
 }
