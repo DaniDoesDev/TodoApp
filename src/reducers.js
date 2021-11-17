@@ -32,11 +32,22 @@ function todoReducer(state, action) {
             }
             console.log(newTodo.id)
             return [newTodo, ...state]
+        // case 'TOGGLE_POST':
+        //     return state.map((p) => {
+        //         if (p._id === action.id) {
+        //             console.log("THIS IS THE MATCHING ONE")
+        //             console.log(action.completed)
+        //             console.log(action.dateCompleted)
+        //             p.completed = action.completed;
+        //             p.dateCompleted = action.dateCompleted;
+        //         }
+        //         return p;
+        //     })
         case 'TOGGLE_TODO':
             return state.map((todo) => {
-                if (todo.id === action.id && todo.completed) {
+                if (todo._id === action.id && todo.completed) {
                     return { ...todo, completed: false, dateCompleted: '' }
-                } else if (todo.id === action.id && !todo.completed) {
+                } else if (todo._id === action.id && !todo.completed) {
                     return { ...todo, completed: true, dateCompleted: Date(Date.now()).toString() }
                 } else {
                     return todo;

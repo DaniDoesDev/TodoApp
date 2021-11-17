@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-navi'
-import { Card , Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { StateContext } from './contexts'
 import { useResource } from 'react-request-hook'
 
@@ -12,13 +12,13 @@ export default function Todo({ title, description, dateCreated, completed, dateC
     const [deletedTodo, deleteTodo] = useResource((_id) => ({
         url: `/todo/${_id}`,
         method: "delete",
-        headers: {"Authorization": `${state.user.access_token}`}
+        headers: { "Authorization": `${state.user.access_token}` }
     }));
 
     const [toggledTodo, toggleTodo] = useResource((_id, completed) => ({
         url: `/todo/${_id}`,
         method: "patch",
-        headers: {"Authorization": `${state.user.access_token}`},
+        headers: { "Authorization": `${state.user.access_token}` },
         data: {
             completed: completed,
             dateCompleted: Date.now()
@@ -27,14 +27,22 @@ export default function Todo({ title, description, dateCreated, completed, dateC
 
     useEffect(() => {
         if (deletedTodo && deletedTodo.data && deletedTodo.isLoading === false) {
+            console.log("AM IN IN USE EFFECT")
             const deleteId = deletedTodo.data._id;
-            dispatch({type: 'DELETE_TODO', id: deleteId})
+            dispatch({ type: 'DELETE_TODO', id: deleteId })
         }
     }, [deletedTodo])
 
     useEffect(() => {
-        if (toggledTodo && toggledTodo.data && toggledTodo.isLoading === false) {
-            dispatch({type: 'TOGGLE_TODO', completed:toggledTodo.data.completed, completedOn:toggledTodo.data.completedOn, _id})
+        console.log("AM IN IN USE EFFECT TOGGLE")
+        if (toggledTodo && (toggledTodo.data || toggledTodo.error) && toggledTodo.isLoading === false) {
+            if (toggledTodo.error) {
+                console.log("GOT AN ERROR BACK FROM TOGGLE TODO")
+            } else {
+                console.log(toggledTodo.data.completed)
+                console.log(toggledTodo.data.dateCompleted)
+                dispatch({ type: 'TOGGLE_TODO', completed: toggledTodo.data.completed, dateCompleted: toggledTodo.data.dateCompleted, id: _id })
+            }
         }
     }, [toggledTodo])
 
@@ -50,17 +58,23 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                     <div>{description}</div>
                     <div>Todo ID: {_id}</div>
                     <div> Date created: {dateCreated} </div>
-                    <div>
+                    {/* <div>
                         <label> Completed?
                             <input type="checkbox" name="box-id" value={completed} checked={completed} onChange={e => {
                                 completed = !completed;
                             }} />
                         </label>
-                    </div>
+                    </div> */}
                     <div> {completed && <text> Date completed: {dateCompleted} </text>}</div>
                 </Card.Text>
-                <input type="checkbox" checked={completed} onChange={e => {toggleTodo(_id, e.target.checked)}} />
-                <Button variant="link" onClick={(e) => {deleteTodo(_id)}}>Delete Post</Button>
+                <label> Completed?
+                    <input type="checkbox" checked={completed} onChange={e => {
+                        toggleTodo(_id, e.target.checked)
+                    }} />
+                </label>
+                <br />
+                <Button variant="link" onClick={(e) => { deleteTodo(_id) }}>Delete Post</Button>
+                <br />
                 <Link href={`/users/${author}`}>View author page</Link>
             </Card.Body>
         </Card>
