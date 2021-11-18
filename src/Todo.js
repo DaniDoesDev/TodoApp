@@ -8,11 +8,16 @@ export default function Todo({ title, description, dateCreated, completed, dateC
 
 
     const { state, dispatch } = useContext(StateContext)
+    const { user } = state
 
     const [deletedTodo, deleteTodo] = useResource((_id) => ({
         url: `/todo/${_id}`,
         method: "delete",
-        headers: { "Authorization": `${state.user.access_token}` }
+        headers: { "Authorization": `${state.user.access_token}` },
+        data: {
+            username: user.username,
+            author: author
+        }
     }));
 
     const [toggledTodo, toggleTodo] = useResource((_id, completed) => ({
@@ -21,7 +26,9 @@ export default function Todo({ title, description, dateCreated, completed, dateC
         headers: { "Authorization": `${state.user.access_token}` },
         data: {
             completed: completed,
-            dateCompleted: Date.now()
+            dateCompleted: Date.now(),
+            username: user.username,
+            author: author
         }
     }));
 
