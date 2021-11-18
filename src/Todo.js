@@ -26,7 +26,7 @@ export default function Todo({ title, description, dateCreated, completed, dateC
         headers: { "Authorization": `${state.user.access_token}` },
         data: {
             completed: completed,
-            dateCompleted: Date.now(),
+            dateCompleted: Date(Date.now()).toString(),
             username: user.username,
             author: author
         }
@@ -64,16 +64,15 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                     <div>Todo ID: {_id}</div>
                     <div> Date created: {dateCreated} </div>
                     <div> {completed && <text> Date completed: {dateCompleted} </text>}</div>
+                    <label> Completed?
+                        <input type="checkbox" checked={completed} onChange={e => {
+                            toggleTodo(_id, e.target.checked)
+                        }} />
+                    </label>
                 </Card.Text>
-                <label> Completed?
-                    <input type="checkbox" checked={completed} onChange={e => {
-                        toggleTodo(_id, e.target.checked)
-                    }} />
-                </label>
-                <br />
-                <Button variant="link" onClick={(e) => { deleteTodo(_id) }}>Delete Post</Button>
-                <br />
-                <Link href={`/users/${author}`}>View author page</Link>
+                <Button variant="primary" onClick={(e) => { deleteTodo(_id) }}>Delete Todo</Button>
+                <p />
+                <Link href={`/users/${author}`}>View {author}'s page</Link>
             </Card.Body>
         </Card>
     )
