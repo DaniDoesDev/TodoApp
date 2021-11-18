@@ -37,13 +37,13 @@ export default function CreateTodo() {
         <form onSubmit={e => { e.preventDefault(); handleCreate(); }}>
             <div>Author: <b>{user.username}</b></div>
             <div>
-                <label htmlFor="create-title">Todo Item Title:</label>
+                <label htmlFor="create-title">Todo Item Title: </label> <b/>
                 <input type="text" value={title} onChange={handleTitle} name="create-title" id="create-title" required />
             </div>
             <textarea value={description} onChange={handleDescription} />
             <input type="submit" value="Create" />
             <div>
-                <label> Already Completed? Click Here!
+                <label> Already Completed? Click Here! <b/>
                     <input type="checkbox" name="box-id" value={completed} checked={completed} onClick={e => {
                         setCompleted(!completed)
                         if (completed === true) {

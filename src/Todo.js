@@ -64,7 +64,7 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                     <div>Todo ID: {_id}</div>
                     <div> Date created: {dateCreated} </div>
                     <div> {completed && <text> Date completed: {dateCompleted} </text>}</div>
-                    <label> Completed?
+                    <label> Completed? <b/>
                         <input type="checkbox" checked={completed} onChange={e => {
                             toggleTodo(_id, e.target.checked)
                         }} />

@@ -17,14 +17,10 @@ export default function UserBar() {
         return <Logout />
     } else {
         return (
-            <div className="justify-content-end">
-                <Button variant="link" onClick={(e) => setShowLogin(true)}>
-                    Login
-                </Button>
+            <div className="justify-content-end" >
+                <Button variant="secondary" onClick={(e) => setShowLogin(true)}>Login</Button> {' '}
                 <Login show={showLogin} handleClose={() => setShowLogin(false)} />
-                <Button variant="link" onClick={(e) => setShowRegister(true)}>
-                    Register
-                </Button>
+                <Button variant="secondary" onClick={(e) => setShowRegister(true)}>Register</Button>
                 <Register show={showRegister} handleClose={() => setShowRegister(false)} />
             </div>
         )
