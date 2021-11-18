@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-navi';
 
-export default function User({ username, id }) {
+export default function User({ username }) {
 
     return (
         <div>

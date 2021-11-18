@@ -34,14 +34,12 @@ export default function Todo({ title, description, dateCreated, completed, dateC
 
     useEffect(() => {
         if (deletedTodo && deletedTodo.data && deletedTodo.isLoading === false) {
-            console.log("AM IN IN USE EFFECT")
             const deleteId = deletedTodo.data._id;
             dispatch({ type: 'DELETE_TODO', id: deleteId })
         }
     }, [deletedTodo])
 
     useEffect(() => {
-        console.log("AM IN IN USE EFFECT TOGGLE")
         if (toggledTodo && (toggledTodo.data || toggledTodo.error) && toggledTodo.isLoading === false) {
             if (toggledTodo.error) {
                 console.log("GOT AN ERROR BACK FROM TOGGLE TODO")

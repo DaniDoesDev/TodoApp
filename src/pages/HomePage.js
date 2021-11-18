@@ -3,8 +3,6 @@ import React, { useEffect, useContext } from 'react'
 import { StateContext } from '../contexts'
 import { useResource } from 'react-request-hook'
 import CreateTodo from "../CreateTodo"
-import ToggleTodo from "../ToggleTodo"
-import DeleteTodo from "../DeleteTodo"
 
 export default function HomePage () {
 
@@ -30,7 +28,7 @@ export default function HomePage () {
     const { data, isLoading } = todos;
     return (
         <>
-        <CreateTodo /> <br />
+        {state.user.username && <CreateTodo />} <br />
           {isLoading && 'Todos loading...'} <TodoList />
         </>
     )
