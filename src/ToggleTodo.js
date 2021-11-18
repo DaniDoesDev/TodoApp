@@ -35,13 +35,12 @@ export default function ToggleTodo() {
 
     useEffect(() => {
         if (todo && todo.data && todo.isLoading === false) {
-            dispatch({type: "TOGGLE_TODO", id: todo.id, completed: todo.completed, dateCompleted: todo.dateCompleted });
+            dispatch({ type: "TOGGLE_TODO", id: todo.id, completed: todo.completed, dateCompleted: todo.dateCompleted });
         }
     }, [todo])
 
     return (
         <form onSubmit={e => { e.preventDefault(); handleToggle(parseInt(id)) }}>
-
             <div>
                 <label htmlFor="toggle-id">Todo Item ID To Be Toggled:</label>
                 <input type="text" value={id} onChange={handleId} name="toggle-id" id="toggle-id" />

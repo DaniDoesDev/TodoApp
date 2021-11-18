@@ -15,7 +15,7 @@ export default function Register({ show, handleClose }) {
     passwordRepeat: ""
   })
 
-  const [ status, setStatus] = useState("")
+  const [status, setStatus] = useState("")
 
   const [user, register] = useResource((username, password) => ({
     url: 'auth/register',
@@ -42,12 +42,10 @@ export default function Register({ show, handleClose }) {
         setStatus("Registration successful. You may now login.")
         alert("You have registered successfully, now routing to your profile page...")
       }
-      //dispatch({ type: 'REGISTER', username: user.data.username })
     }
   }, [user])
 
   return (
-
     <Modal show={show} onHide={handleClose}>
       <Form onSubmit={e => { e.preventDefault(); register(formData.username, formData.password); handleClose(); }}>
         <Modal.Header closeButton>
@@ -67,6 +65,5 @@ export default function Register({ show, handleClose }) {
         </Modal.Footer>
       </Form>
     </Modal>
-
   )
 }

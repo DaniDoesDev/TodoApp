@@ -12,6 +12,7 @@ function userReducer(state, action) {
                 'access_token': undefined
             }
         case 'FETCH_USERS':
+            console.log(action.users)
             return action.users
         default:
             return state;
@@ -32,17 +33,6 @@ function todoReducer(state, action) {
             }
             console.log(newTodo.id)
             return [newTodo, ...state]
-        // case 'TOGGLE_POST':
-        //     return state.map((p) => {
-        //         if (p._id === action.id) {
-        //             console.log("THIS IS THE MATCHING ONE")
-        //             console.log(action.completed)
-        //             console.log(action.dateCompleted)
-        //             p.completed = action.completed;
-        //             p.dateCompleted = action.dateCompleted;
-        //         }
-        //         return p;
-        //     })
         case 'TOGGLE_TODO':
             return state.map((todo) => {
                 if (todo._id === action.id && todo.completed) {
@@ -56,9 +46,6 @@ function todoReducer(state, action) {
             );
         case 'DELETE_TODO':
             return state.filter((p) => p._id !== action.id)
-        // case 'DELETE_TODO':
-        //     return state.filter(todo =>
-        //         todo.id !== action.id);
         case 'FETCH_TODOS':
             console.log(action.todos)
             return action.todos

@@ -12,24 +12,20 @@ import { Container } from "react-bootstrap";
 
 function App() {
 
-  const [ state, dispatch ] = useReducer(appReducer, { user: {}, users: [], todos: [] })
-  
-  const { user } = state;
+  const [state, dispatch] = useReducer(appReducer, { user: {}, users: [], todos: [] })
 
   const routes = mount({
     '/': route({ view: <HomePage /> }),
-    '/users':route({ view: <UsersPage /> }),
+    '/users': route({ view: <UsersPage /> }),
     '/users/:author': route(req => {
-        return { view: <ProfilePage author={req.params.author} /> }
+      return { view: <ProfilePage author={req.params.author} /> }
     }),
-})
+  })
 
 
   return (
     <div>
       <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
-        {/* <HeaderBar />
-        <HomePage /> */}
         <Router routes={routes}>
           <Container>
             <HeaderBar />
@@ -37,17 +33,6 @@ function App() {
             <View />
           </Container>
         </Router>
-        {/* <UserBar />
-        <br /><br /><hr /><br />
-        {user && <CreateTodo />} */}
-        <br />
-        {/* {user && <ToggleTodo />}
-        <br />
-        {user && <DeleteTodo />} */}
-        <br />
-        {/* <TodoList /> */}
-        {/* <ProfilePage author = {user}/> */}
-        {/* <UsersPage /> */}
       </StateContext.Provider>
     </div>
   )

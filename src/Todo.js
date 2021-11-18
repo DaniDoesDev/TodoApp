@@ -65,13 +65,6 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                     <div>{description}</div>
                     <div>Todo ID: {_id}</div>
                     <div> Date created: {dateCreated} </div>
-                    {/* <div>
-                        <label> Completed?
-                            <input type="checkbox" name="box-id" value={completed} checked={completed} onChange={e => {
-                                completed = !completed;
-                            }} />
-                        </label>
-                    </div> */}
                     <div> {completed && <text> Date completed: {dateCompleted} </text>}</div>
                 </Card.Text>
                 <label> Completed?
@@ -85,7 +78,6 @@ export default function Todo({ title, description, dateCreated, completed, dateC
                 <Link href={`/users/${author}`}>View author page</Link>
             </Card.Body>
         </Card>
-
     )
 }
 

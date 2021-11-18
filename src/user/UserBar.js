@@ -17,7 +17,6 @@ export default function UserBar() {
         return <Logout />
     } else {
         return (
-
             <div className="justify-content-end">
                 <Button variant="link" onClick={(e) => setShowLogin(true)}>
                     Login
@@ -28,8 +27,6 @@ export default function UserBar() {
                 </Button>
                 <Register show={showRegister} handleClose={() => setShowRegister(false)} />
             </div>
-
-
         )
     }
 }

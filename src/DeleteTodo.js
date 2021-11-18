@@ -4,18 +4,18 @@ import { useResource } from 'react-request-hook'
 
 export default function DeleteTodo() {
 
-    const {dispatch} = useContext(StateContext)
+    const { dispatch } = useContext(StateContext)
     const [id, setId] = useState()
 
     function handleId(evt) { setId(evt.target.value) }
 
-    const [todo , deleteTodo ] = useResource(({ id }) => ({
+    const [todo, deleteTodo] = useResource(({ id }) => ({
         url: `/todos/${parseInt(id)}`,
         method: 'delete',
-        data: { id } 
+        data: { id }
     }))
 
-    function handleDelete () {
+    function handleDelete() {
         deleteTodo({ id })
     }
 

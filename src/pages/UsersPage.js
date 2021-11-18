@@ -14,6 +14,7 @@ export default function UsersPage () {
 
     const [users, getUsers] = useResource(() => ({
       url: '/auth',
+      headers: {"Authorization": `${state.user.access_token}`},
       method: 'get'
   }))
 
@@ -27,7 +28,7 @@ export default function UsersPage () {
     useEffect(getUsers, [])
 
     useEffect(() => {
-      if (users && users.data) {
+      if (users && users.data && users.isLoading === false) {
         dispatch({ type: 'FETCH_USERS', users: users.data.users })
       }
     }, [users])

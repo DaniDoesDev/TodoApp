@@ -38,18 +38,6 @@ export default function Login({ show, handleClose }) {
         }
     }, [user])
 
-    // useEffect(() => {
-    //     if (user && user.data) {
-    //         if (user.data.length > 0) {
-    //             setLoginFailed(false)
-    //             dispatch({ type: 'LOGIN', username: user.data[0].username })
-    //             navigation.navigate(`/users/${user.data[0].username}`)
-    //         } else {
-    //             setLoginFailed(true)
-    //         }
-    //     }
-    // }, [user])
-
     return (
         <Modal show={show} onHide={handleClose}>
             <Form onSubmit={e => { e.preventDefault(); login(username, password); handleClose() }}>
@@ -69,6 +57,5 @@ export default function Login({ show, handleClose }) {
                 </Modal.Footer>
             </Form>
         </Modal>
-
     )
 }
