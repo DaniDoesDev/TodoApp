@@ -28,7 +28,7 @@ export default function UsersPage() {
   return (
     <>
       <h1 > User List </h1>
-      {isLoading && 'Users loading...'} <UserList />
+      {isLoading && 'Users loading...'} <UserList /> <br />
       <div><Link href="/">Go back to homepage</Link></div>
     </>
   )
