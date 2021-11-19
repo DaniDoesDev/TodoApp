@@ -1,3 +1,9 @@
+NOTE: axiosInstance base url was changed to "/" for Heroku deployment, please set back to localhost 3000 if testing locally.
+
+Express Server repository: https://github.com/DaniDoesDev/todo-server
+
+Heroku app: https://danielletodoapp.herokuapp.com
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
