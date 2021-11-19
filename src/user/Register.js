@@ -25,7 +25,7 @@ export default function Register({ show, handleClose }) {
 
   useEffect(() => {
     if (user && user.data) {
-      dispatch({ type: 'REGISTER', username: user.data.username })
+      dispatch({ type: 'REGISTER', username: user.data.username, access_token: user.data.access_token })
       navigation.navigate(`/users/${user.data.username}`)
     }
   }, [user])
